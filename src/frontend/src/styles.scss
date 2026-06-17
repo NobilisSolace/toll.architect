@@ -1,0 +1,12 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--p-font-family, system-ui, sans-serif);
+  background: var(--p-surface-900, #1a1a2e);
+  color: var(--p-text-color, #e0e0e0);
+}
