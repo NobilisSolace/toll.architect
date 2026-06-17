@@ -27,7 +27,13 @@ Sistema de cobro monolítico para carriles en plazas de cobro.
 ---
 - [x] Definir Tecnologías
 - [X] Modelado Base de Datos en PostgreSQL
+- [X] Definición de arquitectura para comunicación Backend Frontend
 - [] Modelado de Maqueta
+    - [] Modelado de LogIn
+    - [] Pantalla de cobro
+    - [] Barra de dispositivos
+    - [] Histórico eventos
+    - [] Action bar
 - [] Modelado FrontEnd
 - [] Definición de logIn en Carril
 
