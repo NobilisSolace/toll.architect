@@ -1,0 +1,17 @@
+<footer class="dispositives-footer" role="status" aria-label="Estado de dispositivos del carril">
+  @for (group of groups(); track group.category) {
+    <section class="device-group" [attr.aria-label]="'Grupo ' + group.category">
+      <span class="group-label">{{ group.category }}</span>
+      <div class="group-devices">
+        @for (device of group.devices; track device.id) {
+          <div class="device-card" [attr.aria-label]="device.label + ' — ' + device.status">
+            <div class="device-indicator" [class]="'status-' + device.status">
+              <span class="status-dot"></span>
+            </div>
+            <span class="device-name">{{ device.label }}</span>
+          </div>
+        }
+      </div>
+    </section>
+  }
+</footer>

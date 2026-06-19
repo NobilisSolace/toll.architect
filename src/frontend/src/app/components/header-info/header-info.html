@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="header-section header-operator">
+    <div class="info-row">
+      <span class="info-label">Shift Supervisor</span>
+      <span class="info-value">{{ supervisorName() }}</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Operator</span>
+      <span class="info-value">{{ operatorName() }}</span>
+    </div>
+  </div>
+
+  <div class="header-section header-clock">
+    <span class="clock-time">{{ time() }}</span>
+    <span class="clock-date">{{ date() }}</span>
+  </div>
+
+  <div class="header-section header-shift">
+    <div class="info-row">
+      <span class="info-label">Shift</span>
+      <span class="info-value">{{ shiftNumber() }}</span>
+    </div>
+    <div class="info-row info-row--inline">
+      <span class="info-label">Lane</span>
+      <span class="info-value">{{ laneNumber() }}</span>
+      <span class="info-divider"></span>
+      <span class="info-label">Booth</span>
+      <span class="info-value">{{ tollBooth() }}</span>
+    </div>
+  </div>
+</header>

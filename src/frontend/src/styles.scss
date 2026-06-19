@@ -1,12 +1,40 @@
-*, *::before, *::after {
+@use "primeicons/primeicons.css";
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
+  width: 100%;
   height: 100%;
-  font-family: var(--p-font-family, system-ui, sans-serif);
-  background: var(--p-surface-900, #1a1a2e);
+  overflow: hidden;
+  font-family: var(--p-font-family, "Segoe UI", system-ui, -apple-system, sans-serif), serif;
+  background: var(--p-surface-ground, #121212);
   color: var(--p-text-color, #e0e0e0);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+// ── App layout tokens (not covered by PrimeNG) ────────────────────────
+
+:root {
+  --ta-header-h: 90px;
+  --ta-footer-h: 150px;
+  --ta-numpad-size: 85px;
+  --ta-chrome-bg: #636363;
+  --ta-success: #4caf50;
+  --ta-warning: #ff8800;
 }

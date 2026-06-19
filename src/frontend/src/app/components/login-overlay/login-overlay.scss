@@ -1,0 +1,188 @@
+// ── Host ───────────────────────────────────────────────────────────────
+
+:host {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+// ── Enter / Leave animations (driven by animate.enter / animate.leave) ─
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes panelOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+}
+
+:host(.overlay-enter) {
+  animation: overlayIn 0.25s ease-out;
+
+  .login-panel {
+    animation: panelIn 0.3s ease-out;
+  }
+}
+
+:host(.overlay-leave) {
+  animation: overlayOut 0.25s ease-in forwards;
+
+  .login-panel {
+    animation: panelOut 0.2s ease-in forwards;
+  }
+}
+
+// ── Backdrop ───────────────────────────────────────────────────────────
+
+.overlay-backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #121212;
+}
+
+// ── Panel ──────────────────────────────────────────────────────────────
+
+.login-panel {
+  position: relative;
+  background: var(--p-surface-800);
+  border: 1px solid var(--p-surface-border);
+  border-radius: var(--p-content-border-radius, 8px);
+  padding: 2rem 2.25rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+// ── Layout ─────────────────────────────────────────────────────────────
+
+.login-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+// ── Form fields ────────────────────────────────────────────────────────
+
+.form-fields {
+  display: grid;
+  grid-template-rows: repeat(4, var(--ta-numpad-size));
+  gap: 8px;
+  min-width: 280px;
+  position: relative;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+
+  label {
+    font-size: 0.8rem;
+    color: var(--p-text-muted-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  input[pInputText] {
+    width: 100%;
+  }
+}
+
+.error-msg {
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--ta-numpad-size) + 12px);
+  color: var(--p-red-400, #ef5350);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.actions {
+  grid-row: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+// ── Numpad ─────────────────────────────────────────────────────────────
+
+.numpad-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, var(--ta-numpad-size));
+  gap: 8px;
+}
+
+.numpad-key {
+  width: var(--ta-numpad-size);
+  height: var(--ta-numpad-size);
+  border: 1px solid var(--p-surface-border);
+  border-radius: var(--p-content-border-radius, 6px);
+  background: var(--p-surface-800);
+  color: var(--p-text-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.12s, border-color 0.12s, transform 0.08s;
+
+  &:hover {
+    background: var(--p-surface-700);
+    border-color: var(--p-primary-color);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.numpad-zero {
+  grid-column: 2;
+}
+
+.numpad-fn {
+  font-size: 1.4rem;
+}

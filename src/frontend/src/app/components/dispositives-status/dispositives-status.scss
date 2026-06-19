@@ -1,0 +1,111 @@
+:host {
+  display: block;
+}
+
+.dispositives-footer {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  gap: 0;
+  padding: 6px 12px;
+  width: 100%;
+  height: 100%;
+  background: var(--ta-chrome-bg);
+  overflow-x: auto;
+}
+
+// ── Group ─────────────────────────────────────────────────────────────
+
+.device-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 4px;
+  padding: 0 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.group-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.group-devices {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+// ── Device card ───────────────────────────────────────────────────────
+
+.device-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.device-name {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+// ── Device indicator ──────────────────────────────────────────────────
+
+.device-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+// ── Status variants ───────────────────────────────────────────────────
+
+.status-online {
+  border-color: var(--ta-success);
+  background: rgba(76, 175, 80, 0.12);
+
+  .status-dot {
+    background: var(--ta-success);
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+  }
+}
+
+.status-warning {
+  border-color: var(--ta-warning);
+  background: rgba(255, 136, 0, 0.12);
+
+  .status-dot {
+    background: var(--ta-warning);
+    box-shadow: 0 0 6px rgba(255, 136, 0, 0.4);
+  }
+}

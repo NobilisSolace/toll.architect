@@ -1,0 +1,85 @@
+<div class="overlay-backdrop">
+  <div class="login-panel">
+    <p-button
+      class="close-btn"
+      icon="pi pi-times"
+      [rounded]="true"
+      [text]="true"
+      severity="secondary"
+      (onClick)="onExit()"
+      ariaLabel="Cancel"
+    />
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-layout">
+      <div class="form-fields">
+        <div class="field">
+          <label for="lo-user">User</label>
+          <input
+            id="lo-user"
+            type="text"
+            pInputText
+            formControlName="username"
+            autocomplete="username"
+            (focus)="onFieldFocus('username')"
+          />
+        </div>
+
+        <div class="field">
+          <label for="lo-pass">Password</label>
+          <p-password
+            inputId="lo-pass"
+            formControlName="password"
+            [feedback]="false"
+            [toggleMask]="true"
+            autocomplete="current-password"
+            (onFocus)="onFieldFocus('password')"
+            [fluid]="true"
+          />
+        </div>
+
+        <div class="field">
+          <label for="lo-mode">Operation Mode</label>
+          <p-select
+            inputId="lo-mode"
+            [options]="operationModes"
+            formControlName="operationMode"
+            placeholder="Select mode"
+            optionLabel="label"
+            optionValue="value"
+            [fluid]="true"
+          />
+        </div>
+
+        @if (errorMsg()) {
+          <p class="error-msg">{{ errorMsg() }}</p>
+        }
+
+        <div class="actions">
+          <p-button
+            type="submit"
+            label="Log in"
+            icon="pi pi-sign-in"
+            [disabled]="form.invalid || loading()"
+            [loading]="loading()"
+            size="large"
+          />
+        </div>
+      </div>
+
+      <div class="numpad-section">
+        <div class="numpad">
+          @for (digit of numpadDigits; track digit) {
+            <button type="button" class="numpad-key" (click)="onNumpadKey(digit)">
+              {{ digit }}
+            </button>
+          }
+          <button type="button" class="numpad-key numpad-zero" (click)="onNumpadKey('0')">
+            0
+          </button>
+          <button type="button" class="numpad-key numpad-fn" (click)="onNumpadBackspace()">
+            &#x232B;
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

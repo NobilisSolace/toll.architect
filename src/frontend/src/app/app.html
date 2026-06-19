@@ -1,1 +1,18 @@
-<router-outlet />
+<div class="app-shell">
+  <ta-header-info />
+
+  <main class="work-area" (click)="onWorkAreaClick()">
+    @if (showLogin()) {
+      <ta-login-overlay animate.enter="overlay-enter" animate.leave="overlay-leave" (exit)="onLoginExit()" />
+    } @else {
+      <div class="idle-screen">
+        <div class="logo-placeholder">
+          <span class="logo-text">Your Logo Here</span>
+        </div>
+        <p class="tap-hint">Tap anywhere to enter</p>
+      </div>
+    }
+  </main>
+
+  <ta-dispositives-status />
+</div>
