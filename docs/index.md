@@ -11,6 +11,7 @@ Business logic and domain knowledge reference for the Toll.Architect project.
 | [Tariffs](tariffs.md) | Rate tables, vehicle classifications, toll rates | Clasificación vehicular SCT/CAPUFE, cálculo de IVA, ejes excedentes y el modelo flexible de billing configurations. |
 | [Transactions](transactions.md) | Toll transaction, TCE, classifications | Ciclo de vida de un evento de peaje: pre/post clasificación TCE, reclasificación, discrepancias y trazabilidad de auditoría. |
 | [Users & Profiles](users-profiles.md) | Profiles, permissions, users | Perfiles, permisos por perfil, ciclo de credenciales administrado por el APC y modo demo. |
+| [Lane Hardware](laneHardware.md) | DMS/PMV, TCE, cámaras, RFID, operador | Hardware de carril: señalización, TCE (pre/posclasificación), cámaras (ANPR, balizaje, cabina), lectores RFID, equipo del operador. |
 | [Architecture — Comms](architecture-comms.md) | WebSocket, Protobuf, gRPC, message envelope | Decisión de transporte y serialización entre dispositivos, backend y frontend. |
 
 ## Reference
